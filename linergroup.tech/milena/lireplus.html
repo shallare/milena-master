@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<!-- Mirrored from linergroup.tech/milena/lireplus.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Feb 2026 07:15:07 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon Green Tech Africa - IUP MILENA</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="../../cdn.jsdelivr.net/npm/bootstrap%405.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/bootstrap-icons%401.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --blue-color: #253E86;
+            --blue-dark: #005a8d;
+            --orange-color: #E65125;
+            --white-color: #ffffff;
+            --gray-light: #f8f9fa;
+            --gray-text: #6c757d;
+            --dark-color: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white-color);
+            color: var(--dark-color);
+            line-height: 1.7;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--white-color);
+            box-shadow: 0 2px 20px rgba(0, 145, 211, 0.08);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--blue-color) !important;
+        }
+
+        .navbar-brand i {
+            color: var(--orange-color);
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 600;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .nav-link:hover {
+            color: var(--blue-color) !important;
+        }
+
+        .btn-admission {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: var(--white-color);
+            border: none;
+            padding: 0.6rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        /* Article Header */
+        .article-header {
+            background: linear-gradient(135deg, var(--blue-color) 0%, var(--blue-dark) 100%);
+            padding: 140px 0 80px;
+            color: white;
+        }
+
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            display: inline-flex;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        .article-category {
+            background: var(--orange-color);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .article-meta i {
+            margin-right: 0.5rem;
+        }
+
+        /* Featured Image */
+        .featured-image {
+            margin: -80px 0 3rem;
+            position: relative;
+        }
+
+        .featured-image img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Article Content */
+        .article-content {
+            padding: 3rem 0;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--dark-color);
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin: 3rem 0 1.5rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blue-color);
+            margin: 2.5rem 0 1rem;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.8rem;
+        }
+
+        .quote-block {
+            background: var(--gray-light);
+            border-left: 5px solid var(--blue-color);
+            padding: 2rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .quote-block p {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--dark-color);
+            margin: 0;
+        }
+
+        .quote-author {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--blue-color);
+            font-style: normal;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .highlight-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--gray-light);
+            border-radius: 15px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--blue-color);
+        }
+
+        .stat-label {
+            color: var(--gray-text);
+            font-weight: 600;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            border-radius: 15px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Share Section */
+        .share-section {
+            background: var(--gray-light);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .share-btn.facebook {
+            background: #1877f2;
+        }
+
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
+
+        .share-btn.linkedin {
+            background: #0077b5;
+        }
+
+        .share-btn.whatsapp {
+            background: #25d366;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Related Articles */
+        .related-section {
+            background: var(--gray-light);
+            padding: 4rem 0;
+            margin-top: 4rem;
+        }
+
+        .related-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            background: white;
+        }
+
+        .related-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 145, 211, 0.15);
+        }
+
+        .related-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .related-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .related-content {
+            padding: 1.5rem;
+        }
+
+        /* Author Box */
+        .author-box {
+            background: var(--gray-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--blue-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--blue-color);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--orange-color);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.5rem;
+            }
+
+            .article-header {
+                padding: 120px 0 60px;
+            }
+
+            .featured-image {
+                margin: -40px 0 2rem;
+            }
+
+            .author-box {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index-2.html">
+                <img src="assets/img/logo-iUP-MILENA.png" width="80" alt="" srcset="">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-2.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="apropos.html">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formations.html">Formations</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" href="actualites.html">Actualités</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="vie-etudiant.html">Vie étudiante</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admission.html">Admission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">Contacts</a>
+                    </li>
+                </ul>
+                <button class="btn-admission" onclick="window.location.href='admission.html'">Candidature</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <section class="article-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index-2.html">Accueil</a>
+                <span class="mx-2">/</span>
+                <a href="actualites.html">Actualités</a>
+                <span class="mx-2">/</span>
+                <span>Article</span>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <span class="article-category">Événement</span>
+                    <h1 class="article-title">Hackathon "Green Tech Africa" : Nos étudiants brillent</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-calendar2"></i> 15 Janvier 2026</span>
+                        <span><i class="bi bi-person"></i> Par IUP MILENA</span>
+                        <span><i class="bi bi-clock"></i> 5 min de lecture</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Image -->
+    <div class="container">
+        <div class="featured-image">
+            <img src="https://plus.unsplash.com/premium_photo-1689700527463-efbf5c2e652c?q=80&amp;w=1170&amp;auto=format&amp;fit=crop"
+                alt="Hackathon Green Tech Africa">
+        </div>
+    </div>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="article-body">
+                        <p class="lead" style="font-size: 1.3rem; color: var(--gray-text);">
+                            L'équipe de l'Institut Universitaire Polytechnique MILENA a brillamment représenté notre
+                            institution lors du hackathon régional "Green Tech Africa", en remportant la deuxième place
+                            avec une solution innovante pour l'agriculture connectée.
+                        </p>
+
+                        <h2>Une compétition de haut niveau</h2>
+                        <p>
+                            Le hackathon "Green Tech Africa", qui s'est tenu du 10 au 15 janvier 2026 à Cotonou, a réuni
+                            plus de 50 équipes venues de toute l'Afrique de l'Ouest. Les participants avaient pour
+                            mission de développer des solutions technologiques innovantes pour résoudre les défis
+                            environnementaux et agricoles du continent.
+                        </p>
+
+                        <p>
+                            Pendant 5 jours intensifs, nos étudiants ont travaillé sans relâche pour concevoir,
+                            développer et présenter leur projet devant un jury composé d'experts internationaux en
+                            technologie verte et développement durable.
+                        </p>
+
+                        <h2>AgroConnect : La solution primée</h2>
+                        <p>
+                            Le projet "AgroConnect", développé par une équipe de 5 étudiants de notre filière
+                            Technologies et Solutions Numériques (TSN), est une plateforme IoT qui permet aux
+                            agriculteurs de surveiller en temps réel l'état de leurs cultures grâce à des capteurs
+                            intelligents.
+                        </p>
+
+                        <div class="stats-row">
+                            <div class="stat-card">
+                                <div class="stat-number">5</div>
+                                <div class="stat-label">Jours de compétition</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Équipes participantes</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">2ème</div>
+                                <div class="stat-label">Place obtenue</div>
+                            </div>
+                        </div>
+
+                        <h3>Fonctionnalités clés d'AgroConnect</h3>
+                        <ul>
+                            <li><strong>Surveillance en temps réel</strong> : Des capteurs mesurent l'humidité du sol,
+                                la température, et les nutriments</li>
+                            <li><strong>Alertes intelligentes</strong> : Les agriculteurs reçoivent des notifications
+                                sur leur téléphone en cas d'anomalie</li>
+                            <li><strong>Conseils personnalisés</strong> : Un système d'IA analyse les données et propose
+                                des recommandations adaptées</li>
+                            <li><strong>Interface multilingue</strong> : Disponible en français, anglais et langues
+                                locales</li>
+                            <li><strong>Mode hors-ligne</strong> : Fonctionnement garanti même sans connexion internet
+                                constante</li>
+                        </ul>
+
+                        <div class="quote-block">
+                            <p>"Ce projet démontre parfaitement l'esprit d'innovation et l'engagement de nos étudiants
+                                envers le développement durable de l'Afrique. Ils ont appliqué les compétences acquises
+                                à MILENA pour créer une solution qui répond à un vrai besoin de notre continent."</p>
+                            <div class="quote-author">- Lougbégnon Narcisse HOUNNON TOFFA, Président de la Fondation
+                                ITISA</div>
+                        </div>
+
+                        <h2>L'équipe gagnante</h2>
+                        <p>
+                            L'équipe MILENA était composée de cinq étudiants brillants qui ont su combiner leurs
+                            compétences complémentaires :
+                        </p>
+
+                        <ul>
+                            <li><strong>Aminata K.</strong> - Chef d'équipe et développeuse Full-Stack</li>
+                            <li><strong>Ibrahim D.</strong> - Spécialiste IoT et hardware</li>
+                            <li><strong>Sophie A.</strong> - Experte en Intelligence Artificielle</li>
+                            <li><strong>Jean-Marc T.</strong> - Designer UX/UI</li>
+                            <li><strong>Fatou M.</strong> - Analyste de données agricoles</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <h3>Impact du Modèle Pédagogique MILENA</h3>
+                            <p>
+                                Cette victoire illustre parfaitement l'efficacité du modèle pédagogique DRIVEn de l'IUP
+                                MILENA, qui combine 30% de théorie et 70% de pratique. Les étudiants ont pu mobiliser à
+                                la fois leurs connaissances techniques acquises en cours et leur expérience pratique en
+                                entreprise pour concevoir une solution réellement applicable sur le terrain.
+                            </p>
+                        </div>
+
+                        <h2>Perspectives et prochaines étapes</h2>
+                        <p>
+                            Suite à ce succès, l'équipe a reçu plusieurs propositions de partenariat pour développer
+                            davantage leur solution. Un programme pilote est prévu dans trois fermes du département du
+                            Zou pour tester AgroConnect en conditions réelles.
+                        </p>
+
+                        <p>
+                            De plus, une startup est en cours de création par les membres de l'équipe, avec
+                            l'accompagnement de l'incubateur de l'IUP MILENA et le soutien de la Fondation ITISA. Cet
+                            exemple parfait illustre notre mission de former non seulement des techniciens compétents,
+                            mais surtout des entrepreneurs capables de créer de la valeur et de l'emploi.
+                        </p>
+
+                        <h3>Un modèle à suivre</h3>
+                        <p>
+                            Cette réussite s'inscrit dans la vision de l'IUP MILENA : former des leaders et
+                            entrepreneurs qui transforment l'Afrique. En développant les 5 intelligences
+                            (intellectuelle, émotionnelle, sociale, créative et adaptative), nos étudiants sont équipés
+                            pour relever les défis de demain.
+                        </p>
+
+                        <!-- Image Gallery -->
+                        <div class="image-gallery">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800"
+                                    alt="Équipe au travail">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800"
+                                    alt="Présentation du projet">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800"
+                                    alt="Remise de prix">
+                            </div>
+                        </div>
+
+                        <!-- Author Box -->
+                        <div class="author-box">
+                            <div class="author-avatar">M</div>
+                            <div class="author-info">
+                                <h4>Service Communication IUP MILENA</h4>
+                                <p class="text-muted mb-0">
+                                    L'équipe de communication de l'Institut Universitaire Polytechnique MILENA vous
+                                    tient informé de toutes les actualités et réussites de nos étudiants et de notre
+                                    institution.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Share Section -->
+                        <div class="share-section">
+                            <h4 class="mb-3">Partager cet article</h4>
+                            <div class="share-buttons">
+                                <button class="share-btn facebook">
+                                    <i class="bi bi-facebook"></i> Facebook
+                                </button>
+                                <button class="share-btn twitter">
+                                    <i class="bi bi-twitter"></i> Twitter
+                                </button>
+                                <button class="share-btn linkedin">
+                                    <i class="bi bi-linkedin"></i> LinkedIn
+                                </button>
+                                <button class="share-btn whatsapp">
+                                    <i class="bi bi-whatsapp"></i> WhatsApp
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="related-section">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5" style="color: var(--blue-dark);">Articles Connexes</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <div class="related-img">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" alt="Article">
+                        </div>
+                        <div class="related-content">
+                            <span class="badge bg-primary mb-2">Académique</span>
+                            <h5 class="fw-bold mb-2">Nouveau partenariat avec l'Université Technique de Munich</h5>
+                            <p class="text-muted small mb-3">10 Janvier 2026</p>
+                            <a href="#" class="text-decoration-none fw-semibold" style="color: var(--blue-color);">
+                                Lire la suite <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <div class="related-img">
+                            <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?w=800" alt="Article">
+                        </div>
+                        <div class="related-content">
+                            <span class="badge" style="background: var(--blue-color);">Pédagogie</span>
+                            <h5 class="fw-bold mb-2">Inauguration du Laboratoire IoT</h5>
+                            <p class="text-muted small mb-3">15 Décembre 2025</p>
+                            <a href="#" class="text-decoration-none fw-semibold" style="color: var(--blue-color);">
+                                Lire la suite <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <div class="related-img">
+                            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800" alt="Article">
+                        </div>
+                        <div class="related-content">
+                            <span class="badge bg-success mb-2">Vie Étudiante</span>
+                            <h5 class="fw-bold mb-2">Ouverture du nouveau foyer étudiant</h5>
+                            <p class="text-muted small mb-3">22 Décembre 2025</p>
+                            <a href="#" class="text-decoration-none fw-semibold" style="color: var(--blue-color);">
+                                Lire la suite <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="actualites.html" class="btn btn-lg px-5 text-white fw-bold"
+                    style="background: var(--orange-color); border-radius: 10px;">
+                    Voir toutes les actualités
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>IUP MILENA</h5>
+                    <p>IUP MILENA, Former des leaders, des entrepreneurs et des innovateurs pour l’Afrique
+                    </p>
+                    <div class="mt-3 text-white-50">
+                        <p class="mb-1"><i class="bi bi-geo-alt me-2"></i><a
+                                href="https://maps.app.goo.gl/u5kUjBPr3KWrajK37" target="_blank"
+                                style="color: inherit; text-decoration: none;">Abomey-Calavi, Zopah / Tankpè</a></p>
+                        <p class="mb-1"><i class="bi bi-telephone me-2"></i>+229 01 90 62 62 84</p>
+                        <p class="mb-1"><i class="bi bi-envelope me-2"></i>iup.milena.itisa@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>L'Institut</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index-2.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="formations.html">Formations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="vie-etudiant.html">Vie étudiante</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Suivez-nous</h5>
+                    <div class="d-flex gap-3 mb-3">
+                        <a href="#" class="text-white"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-linkedin fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-instagram fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255, 255, 255, 0.2);">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2026 IUP MILENA. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>

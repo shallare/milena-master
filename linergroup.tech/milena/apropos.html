@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<!-- Mirrored from linergroup.tech/milena/apropos.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Feb 2026 07:09:05 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - IUP MILENA</title>
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="../../cdn.jsdelivr.net/npm/bootstrap%405.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/bootstrap-icons%401.11.1/font/bootstrap-icons.css">
+
+    <!-- Le style Css -->
+    <link rel="stylesheet" href="assets/css/animations.html">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        :root {
+            --blue-color: #253E86;
+            --blue-dark: #005a8d;
+            --orange-color: #E65125;
+            --white-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* La navbar */
+        .navbar {
+            background-color: var(--white-color);
+            box-shadow: 0 2px 20px rgba(0, 145, 211, 0.08);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0, 145, 211, 0.12);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--blue-color) !important;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar-brand i {
+            color: var(--orange-color);
+        }
+
+        .nav-link {
+            color: #1a1a1a !important;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem !important;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-color), var(--orange-color));
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--blue-color) !important;
+        }
+
+        .dropdown-menu {
+            background-color: var(--white-color);
+            border: none;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            animation: fadeInDown 0.3s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-item {
+            color: #1a1a1a;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: var(--white-color);
+            transform: translateX(5px);
+        }
+
+        .btn-search {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: var(--white-color);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 145, 211, 0.3);
+            margin-right: 1rem;
+        }
+
+        .btn-search:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 25px rgba(0, 145, 211, 0.4);
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-color));
+        }
+
+        .btn-search i {
+            font-size: 1.2rem;
+        }
+
+        .btn-admission {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: var(--white-color);
+            border: none;
+            padding: 0.6rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: all 0.3s ease-in-out;
+            box-shadow: none;
+        }
+
+        .btn-admission:hover {
+            transform: translateY(-2px);
+            box-shadow: none;
+            background: linear-gradient(135deg, #ff8c5a, var(--orange-color));
+        }
+
+        /* Animation au scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image avec effet */
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 145, 211, 0.25);
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--orange-color), var(--blue-color));
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Barre de recherche */
+        /* Mobile defaults (Fixed overlay) */
+        .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .search-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .search-overlay input {
+            width: 100%;
+            max-width: 800px;
+            border: none;
+            border-bottom: 2px solid var(--blue-color);
+            font-size: 2rem;
+            padding: 1rem;
+            outline: none;
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+        }
+
+        .search-overlay .close-search {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--gray-light);
+            color: var(--dark-color);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-overlay .close-search:hover {
+            transform: rotate(90deg);
+            background: var(--orange-color);
+            color: white;
+        }
+
+        /* Desktop: Embedded sliding bar */
+        @media (min-width: 992px) {
+            .navbar-collapse {
+                position: relative;
+            }
+
+            /* Layering: Links (1), Search (2), Buttons (3) */
+            .navbar-nav {
+                position: relative;
+                z-index: 1;
+            }
+
+            .navbar-collapse>.d-flex {
+                position: relative;
+                z-index: 3;
+            }
+
+            .search-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                /* Fills the collapse area */
+                width: auto;
+                height: auto;
+                background: var(--white-color);
+                z-index: 2;
+                /* Covers links, sits under buttons */
+
+                /* Layout */
+                justify-content: flex-start;
+                /* Align input to left/center */
+                padding: 0;
+                padding-right: 220px;
+                /* Space for the right-side buttons */
+
+                /* Animation: Slide from Right */
+                transform: translateX(100%);
+                /* Start off to the right */
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+                /* Visual overrides for desktop */
+                border-radius: 0;
+                box-shadow: none;
+                pointer-events: none;
+                /* Let clicks pass through when hidden */
+            }
+
+            .search-overlay.active {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            .search-overlay input {
+                font-size: 1.2rem;
+                border-bottom: none;
+                padding: 0 1rem;
+                max-width: none;
+                height: 100%;
+            }
+
+            .search-overlay .close-search {
+                position: relative;
+                top: auto;
+                right: auto;
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+                margin-left: 1rem;
+                background: linear-gradient(135deg, var(--orange-color), #ff8c5a);
+                color: white;
+            }
+        }
+
+        /* Section Timeline historique - Galerie Interactive */
+        .timeline-section {
+            position: relative;
+            padding: 80px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .timeline-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .timeline-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            aspect-ratio: auto;
+            min-height: auto;
+            margin: 0;
+            opacity: 1;
+            filter: none;
+            transform: none;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 145, 211, 0.15);
+            z-index: 2;
+        }
+
+        .timeline-card-image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .timeline-card:hover .timeline-card-image {
+            transform: scale(1.05);
+        }
+
+        .timeline-card-content {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            background: white;
+            position: relative;
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0, 145, 211, 0.3);
+            z-index: 2;
+        }
+
+        .timeline-title {
+            color: var(--blue-color);
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+        }
+
+        .timeline-preview {
+            color: #6c757d;
+            line-height: 1.5;
+            font-size: 0.85rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        /* Responsive Grid */
+        @media (max-width: 992px) {
+            .timeline-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline-gallery {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+            }
+
+            .timeline-card {
+                max-width: 100%;
+            }
+        }
+
+        /* Modal Overlay */
+        .timeline-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            padding: 2rem;
+        }
+
+        .timeline-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .timeline-modal {
+            background: white;
+            border-radius: 30px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .timeline-overlay.active .timeline-modal {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .timeline-modal-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .timeline-modal-content {
+            padding: 2.5rem;
+        }
+
+        .timeline-modal-year {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--orange-color), #ff8c5a);
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-modal-title {
+            color: var(--blue-color);
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-modal-description {
+            color: #333;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--blue-color);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .timeline-modal-close:hover {
+            transform: rotate(90deg) scale(1.1);
+            background: var(--orange-color);
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-modal-image {
+                height: 250px;
+            }
+
+            .timeline-modal-content {
+                padding: 1.5rem;
+            }
+
+            .timeline-modal-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index-2.html">
+                <img src="assets/img/logo-iUP-MILENA.png" width="80" alt="" srcset="">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-2.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="apropos.html">À propos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="formationDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Formations
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="formation1.html">TSN : Technologies & Solutions
+                                    Numériques</a></li>
+                            <li><a class="dropdown-item" href="formation2.html">IEDD : Ingénierie de l'Environnement et
+                                    Développement Durable</a></li>
+                            <li><a class="dropdown-item" href="formation3.html">IBC : Ingénierie de Bâtiments et
+                                    Construction</a></li>
+                            <li><a class="dropdown-item" href="formation4.html">AIC : Agrobusiness et Ingénierie
+                                    Coopérative</a></li>
+                            <li><a class="dropdown-item" href="formation5.html">LTES : Logistique, Transport et Économie
+                                    des Services</a></li>
+                            <li><a class="dropdown-item" href="formation6.html">IAA : Industrie Artisanale et
+                                    Artistique</a></li>
+                            <li><a class="dropdown-item" href="formation7.html">HRE : Hôtellerie, Restauration et
+                                    Écotourisme</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="actualites.html">Actualités</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="vie-etudiant.html">Vie étudiante</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admission.html">Admission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">Contacts</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn-search" onclick="openSearch()">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button class="btn-admission" onclick="window.location.href='admission.html'">Candidature</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">À propos de l'IUP MILENA.</h1>
+            <p class="lead">Millénium pour le Leadership et l’Entrepreneuriat en Afrique</p>
+        </div>
+    </section>
+
+    <!-- Notre Histoire avec Image -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 fade-in">
+                    <h2 class="mb-4 text-blue">Notre histoire.</h2>
+                    <p><strong>L'Institut Universitaire Polytechnique MILENA</strong> (Millénium pour le Leadership et
+                        l'Entrepreneuriat en Afrique)
+                        est porté par la <strong>Fondation ITISA</strong> (Fondation pour l'Impulsion les
+                        Transformations et
+                        les Innovations Sociales en Afrique).</p>
+                    <p>Inspiré par le modèle allemand de formation en alternance et adapté au contexte africain, MILENA
+                        a été conçu
+                        pour répondre à la crise de l'employabilité des jeunes en Afrique subsaharienne.</p>
+                    <p>Notre vision : Former des <strong>bâtisseurs</strong> capables de transformer l'Afrique grâce à
+                        un modèle pédagogique innovant
+                        qui allie excellence académique et immersion professionnelle.</p>
+                </div>
+                <div class="col-lg-6 fade-in">
+                    <div class="image-wrapper">
+                        <img src="assets/img/Acceuil.jpg" alt="Campus Institut" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Notre Mission -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4">
+                    <h2 class="mb-4 text-blue">Notre mission.</h2>
+                    <p>Former des <strong>Leaders et Entrepreneurs de type nouveau</strong> capables de transformer
+                        l'Afrique :</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> une formation basée
+                            sur le système Dual : 70% pratique en entreprise, 30% théorie en salle.</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> la pédagogie innovante
+                            DRIVEn : Déprogrammation, Reprogrammation et Innovations, par le Volontariat pour
+                            l'Entreprenariat.</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> 7 filières
+                            stratégiques alignées avec les besoins du marché africain.</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> un réseau solide
+                            d'entreprises partenaires pour une employabilité garantie.</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> un accompagnement
+                            personnalisé vers l'excellence et l'autonomie professionnelle.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 order-lg-1 fade-in">
+                    <div class="image-wrapper">
+                        <img src="assets/img/Acceuil.jpg" alt="Mission Institut" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Historique -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-blue">L'évolution de MILENA.</h2>
+                <p class="lead">De la vision à la réalisation : construire l'avenir de l'Afrique</p>
+            </div>
+
+            <div class="timeline-gallery">
+                <!-- Carte 2018 - Vision -->
+                <div class="timeline-card" onclick="openTimelineModal('2015_1')">
+                    <img src="assets/img/timeline/timeline_vision_2015.png" alt="2015 - Naissance de la Vision"
+                        class="timeline-card-image">
+                    <div class="timeline-card-content">
+                        <span class="timeline-year">2015</span>
+                        <h3 class="timeline-title">Naissance de la vision.</h3>
+                        <p class="timeline-preview">Identification du défi majeur : le chômage des jeunes en Afrique
+                            subsaharienne...</p>
+                    </div>
+                </div>
+
+                <!-- Carte 2020 - ITISA -->
+                <div class="timeline-card" onclick="openTimelineModal('2015_2')">
+                    <img src="assets/img/timeline/timeline_itisa_2015.png" alt="2015 - Fondation ITISA"
+                        class="timeline-card-image">
+                    <div class="timeline-card-content">
+                        <span class="timeline-year">2015</span>
+                        <h3 class="timeline-title">Création de la fondation ITISA.</h3>
+                        <p class="timeline-preview">Établissement de la Fondation ITISA (Fondation pour l'Impulsion les
+                            Transformations et les Innovations Sociales en Afrique)...</p>
+                    </div>
+                </div>
+
+                <!-- Carte 2021 - DRIVEn -->
+                <div class="timeline-card" onclick="openTimelineModal('2021')">
+                    <img src="assets/img/timeline/timeline_driven_2021.jpg" alt="2021 - Modèle DRIVEn"
+                        class="timeline-card-image">
+                    <div class="timeline-card-content">
+                        <span class="timeline-year">2021</span>
+                        <h3 class="timeline-title">Développement du modèle DRIVEn.</h3>
+                        <p class="timeline-preview">Élaboration de la pédagogie DRIVEn (Déprogrammation, Reprogrammation
+                            et Innovations, par le Volontariat pour l'Entreprenariat)...</p>
+                    </div>
+                </div>
+
+                <!-- Carte 2022 - Filières -->
+                <div class="timeline-card" onclick="openTimelineModal('2023')">
+                    <img src="assets/img/timeline/timeline_filieres_2023.png" alt="2023 - 7 Filières"
+                        class="timeline-card-image">
+                    <div class="timeline-card-content">
+                        <span class="timeline-year">2023</span>
+                        <h3 class="timeline-title">Définition des 7 filières.</h3>
+                        <p class="timeline-preview">Structuration de l'offre de formation autour de 7 filières
+                            stratégiques...</p>
+                    </div>
+                </div>
+
+                <!-- Carte 2023 - Partenariats -->
+                <div class="timeline-card" onclick="openTimelineModal('2024')">
+                    <img src="assets/img/timeline/timeline_partnerships_2024.png" alt="2024 - Partenariats"
+                        class="timeline-card-image">
+                    <div class="timeline-card-content">
+                        <span class="timeline-year">2024</span>
+                        <h3 class="timeline-title">Partenariats avec les entreprises.</h3>
+                        <p class="timeline-preview">Constitution d'un réseau solide d'entreprises partenaires prêtes à
+                            accueillir nos étudiants...</p>
+                    </div>
+                </div>
+
+                <!-- Carte 2025 - Lancement -->
+                <div class="timeline-card" onclick="openTimelineModal('2025')">
+                    <img src="assets/img/timeline/timeline_launch_2025.jpg" alt="2025 - Lancement"
+                        class="timeline-card-image">
+                    <div class="timeline-card-content">
+                        <span class="timeline-year">2025</span>
+                        <h3 class="timeline-title">Lancement imminent.</h3>
+                        <p class="timeline-preview">Finalisation des infrastructures à Abomey-Calavi (Zopah/Tankpè).
+                            Ouverture prévue...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Overlay pour afficher les détails -->
+    <div class="timeline-overlay" id="timelineOverlay" onclick="closeTimelineModal(event)">
+        <div class="timeline-modal" onclick="event.stopPropagation()">
+            <button class="timeline-modal-close" onclick="closeTimelineModal()">
+                <i class="bi bi-x"></i>
+            </button>
+            <img id="modalImage" src="#" alt="" class="timeline-modal-image">
+            <div class="timeline-modal-content">
+                <span class="timeline-modal-year" id="modalYear"></span>
+                <h2 class="timeline-modal-title" id="modalTitle"></h2>
+                <div class="timeline-modal-description" id="modalDescription"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fondation ITISA -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-blue">Le porteur du projet MILENA.</h2>
+
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <h3 class="text-blue mb-4">La fondation ITISA.</h3>
+                    <p class="lead mb-4">
+                        La <strong>Fondation ITISA</strong> est l'organisation à but non lucratif qui porte et pilote le
+                        projet IUP MILENA.
+                        Créée en 2015, elle incarne la vision d'une éducation transformatrice pour l'Afrique.
+                    </p>
+
+                    <h5 class="text-orange mb-3">Nos activités :</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> Éducation et
+                            renforcement des capacités</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> Médiation sociale</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> Mise en place des
+                            infrastructures et équipements sociaux</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> Volontariat et
+                            entrepreneuriat</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> Évaluation des
+                            politiques publiques</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-orange me-2"></i> Élaboration et
+                            vulgarisation d'outils et mécanismes de développement</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-body p-5"
+                            style="background: linear-gradient(135deg, var(--blue-light), var(--orange-light));">
+                            <h4 class="text-blue mb-4">Impact et Vision</h4>
+                            <p class="mb-4">
+                                Depuis sa création, la Fondation ITISA travaille sans relâche pour transformer
+                                l'éducation
+                                supérieure en Afrique. Le projet MILENA représente la concrétisation de cette vision :
+                                former une nouvelle génération de leaders, d'entrepreneurs et de professionnels
+                                hautement
+                                qualifiés qui seront les bâtisseurs de l'Afrique de demain.
+                            </p>
+
+                            <div class="alert alert-info border-0 mb-0">
+                                <h6 class="text-blue mb-2"><i class="bi bi-info-circle me-2"></i>Notre engagement</h6>
+                                <p class="mb-0 small">
+                                    Nous croyons fermement que l'éducation est le levier le plus puissant pour le
+                                    développement durable de l'Afrique. À travers MILENA, nous offrons aux jeunes
+                                    les outils, les compétences et les opportunités nécessaires pour réussir dans
+                                    une économie mondialisée tout en restant enracinés dans les valeurs africaines.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="https://www.fondationitisa.org/" target="_blank"
+                    class="btn btn-lg text-white fw-bold px-5 py-3"
+                    style="background: linear-gradient(135deg, var(--blue-color), var(--blue-dark)); border-radius: 50px;">
+                    <i class="bi bi-arrow-right-circle me-2"></i> En savoir plus sur la Fondation ITISA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>IUP MILENA.</h5>
+                    <p>IUP MILENA, Former des leaders, des entrepreneurs et des innovateurs pour l’Afrique
+                    </p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                    </div>
+                    <div class="mt-3 text-white-50">
+                        <p class="mb-1"><i class="bi bi-geo-alt me-2"></i><a
+                                href="https://maps.app.goo.gl/u5kUjBPr3KWrajK37" target="_blank"
+                                style="color: inherit; text-decoration: none;">Abomey-Calavi, Zopah / Tankpè</a></p>
+                        <p class="mb-1"><i class="bi bi-telephone me-2"></i>+229 01 90 62 62 84</p>
+                        <p class="mb-1"><i class="bi bi-envelope me-2"></i>iup.milena.itisa@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>L'institut.</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index-2.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos (ITISA)</a></li>
+                        <li><a href="#">Nos Formations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Services.</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="vie-etudiant.html">Vie étudiante</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Restez informé(e) de nos dernières actualités.</h5>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email">
+                        <button type="submit">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="mb-0">&copy; 2026 IUP MILENA. Tous droits réservés.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../cdn.jsdelivr.net/npm/bootstrap%405.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Fonctions de recherche
+        function openSearch() {
+            document.getElementById('searchOverlay').classList.add('active');
+            document.getElementById('searchInput').focus();
+        }
+
+        function closeSearch() {
+            document.getElementById('searchOverlay').classList.remove('active');
+        }
+
+        // Fermer la recherche avec Echap
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeSearch();
+            }
+        });
+
+        // Timeline Modal Functions
+        const timelineData = {
+            '2015_1': {
+                year: '2015',
+                title: 'Naissance de la vision.',
+                image: 'assets/img/timeline/timeline_vision_2015.jpg',
+                description: `<p><strong>Le constat :</strong> L'Afrique subsaharienne fait face à une crise majeure de l'employabilité des jeunes. Des millions de diplômés se retrouvent sans emploi, faute de compétences pratiques alignées avec les besoins réels des entreprises.</p>
+                    <p><strong>La solution :</strong> Inspiré du modèle dual allemand qui a fait ses preuves depuis plus d'un siècle, nous avons conçu un système innovant adapté au contexte africain. L'objectif : former des jeunes qui ont à la fois l'excellence académique et l'expérience professionnelle dès la fin de leurs études.</p>
+                    <p><strong>La vision MILENA était née :</strong> Transformer l'éducation supérieure en Afrique en créant une nouvelle génération de leaders et entrepreneurs capables de bâtir le continent de demain.</p>`
+            },
+            '2015_2': {
+                year: '2015',
+                title: 'Création de la fondation ITISA.',
+                image: 'assets/img/timeline/timeline_itisa_2015.jpg',
+                description: `<p><strong>Fondation ITISA : Fondation pour l'Impulsion les Transformations et les Innovations Sociales en Afrique</strong></p>
+                    <p>Pour porter la vision MILENA, nous avons créé la Fondation ITISA, une organisation dédiée à la transformation de l'éducation en Afrique. La fondation a pour mission de :</p>
+                    <ul>
+                        <li>Promouvoir l'innovation pédagogique et l'excellence académique</li>
+                        <li>Développer des partenariats stratégiques avec les entreprises et institutions</li>
+                        <li>Créer des infrastructures de formation modernes et adaptées</li>
+                        <li>Favoriser l'accès à une éducation de qualité pour tous les jeunes africains</li>
+                    </ul>
+                    <p>La Fondation ITISA est le pilier qui soutient l'ensemble du projet MILENA.</p>`
+            },
+            '2021': {
+                year: '2021',
+                title: 'Développement du modèle DRIVEn.',
+                image: 'assets/img/timeline/timeline_driven_2021.jpg',
+                description: `<p><strong>La pédagogie DRIVEn représente notre approche unique de formation :</strong></p>
+                    <p><strong>D</strong>éprogrammation - Se libérer des blocages mentaux et des limitations auto-imposées.</p>
+                    <p><strong>R</strong>eprogrammation - Adopter un nouvel état d'esprit orienté vers la réussite et l'action.</p>
+                    <p><strong>I</strong>nnovations - Créer des solutions nouvelles pour répondre aux défis actuels.</p>
+                    <p><strong>V</strong>olontariat - S'engager au service de la communauté pour développer son leadership.</p>
+                    <p><strong>En</strong>treprenariat - Transformer des idées en projets concrets et générateurs de valeur.</p>
+                    <p><strong>DRIVEn :</strong> Déprogrammation, Reprogrammation et Innovations, par le Volontariat pour l'Entreprenariat.</p>
+                    <p><strong>Le système Dual :</strong> 30% en salle (théorie) + 70% du temps en entreprise (pratique) = 100% d'employabilité !</p>`
+            },
+            '2023': {
+                year: '2023',
+                title: 'Définition des 7 filières stratégiques.',
+                image: 'assets/img/timeline/timeline_filieres_2023.jpg',
+                description: `<p><strong>7 filières alignées avec les besoins du marché africain :</strong></p>
+                    <ol>
+                        <li><strong>TSN : Technologies & Solutions Numériques</strong> - Développement logiciel, cybersécurité, data science, IA</li>
+                        <li><strong>Ingénierie Environnement et Développement Durable (IEDD)</strong> - Énergies renouvelables, gestion de l'eau, économie circulaire</li>
+                        <li><strong>Ingénierie des Bâtiments et de la Construction (IBC)</strong> - Architecture durable, génie civil, urbanisme</li>
+                        <li><strong>Agro-Industrie et Commerce (AIC)</strong> - Transformation agricole, agrobusiness, chaîne de valeur</li>
+                        <li><strong>Logistique, Transport et Économie du Sport (LTES)</strong> - Supply chain, transport multimodal, management sportif</li>
+                        <li><strong>Ingénierie de l'Artisanat et de l'Art (IAA)</strong> - Design, arts appliqués, innovation artisanale</li>
+                        <li><strong>Hôtellerie, Restauration et Écotourisme (HRE)</strong> - Management hôtelier, gastronomie, tourisme durable</li>
+                    </ol>
+                    <p>Chaque filière est conçue pour répondre aux défis spécifiques du développement africain.</p>`
+            },
+            '2024': {
+                year: '2024',
+                title: 'Partenariats avec les entreprises.',
+                image: 'assets/img/timeline/timeline_partnerships_2024.jpg',
+                description: `<p><strong>Constitution d'un écosystème d'entreprises partenaires</strong></p>
+                    <p>Le succès du modèle dual repose sur des partenariats solides avec le monde professionnel. En 2023, nous avons tissé des liens stratégiques avec :</p>
+                    <ul>
+                        <li>Des entreprises locales et internationales prêtes à accueillir nos étudiants en alternance</li>
+                        <li>Des chambres de commerce et des organisations professionnelles</li>
+                        <li>Des incubateurs et accélérateurs pour soutenir l'entrepreneuriat étudiant</li>
+                        <li>Des experts métiers qui interviennent dans nos formations</li>
+                    </ul>
+                    <p><strong>Résultat :</strong> Nos étudiants ne sont pas seulement formés POUR l'emploi, mais DANS l'emploi, aux côtés des professionnels qui définiront leur avenir.</p>
+                    <p>Cette collaboration étroite garantit que nos programmes restent pertinents et que nos diplômés sont immédiatement opérationnels.</p>`
+            },
+            '2025': {
+                year: '2025',
+                title: 'Lancement imminent - l\'avenir commence maintenant.',
+                image: 'assets/img/timeline/timeline_launch_2025.jpg',
+                description: `<p><strong>Abomey-Calavi, Zopah/Tankpè - Le Campus de l'Excellence</strong></p>
+                    <p>Après des années de préparation, de conception et de partenariats, l'IUP MILENA est prêt à ouvrir ses portes !</p>
+                    <p><strong>Les infrastructures :</strong></p>
+                    <ul>
+                        <li>Un campus moderne équipé des dernières technologies</li>
+                        <li>Des laboratoires pratiques pour chaque filière</li>
+                        <li>Des espaces de coworking et d'innovation pour les étudiants-entrepreneurs</li>
+                        <li>Des installations sportives et culturelles pour l'épanouissement personnel</li>
+                        <li>Un environnement d'apprentissage connecté et collaboratif</li>
+                    </ul>
+                    <p><strong>La première promotion :</strong> Nous sommes fiers d'accueillir les pionniers, ces jeunes visionnaires qui seront les premiers à expérimenter ce modèle révolutionnaire de formation.</p>
+                    <p><strong>L'engagement :</strong> Former des bâtisseurs, des leaders, des entrepreneurs qui transformeront l'Afrique et créeront les emplois de demain.</p>
+                    <p class="text-orange" style="font-size: 1.2rem; font-weight: 700; margin-top: 2rem;">🎓 Rejoignez-nous dans cette aventure exceptionnelle ! L'avenir de l'Afrique s'écrit ici.</p>`
+            }
+        };
+
+        function openTimelineModal(year) {
+            const data = timelineData[year];
+            if (!data) return;
+
+            const overlay = document.getElementById('timelineOverlay');
+            const modalImage = document.getElementById('modalImage');
+            const modalYear = document.getElementById('modalYear');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+
+            modalImage.src = data.image;
+            modalImage.alt = data.title;
+            modalYear.textContent = data.year;
+            modalTitle.textContent = data.title;
+            modalDescription.innerHTML = data.description;
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Empêcher le scroll
+        }
+
+        function closeTimelineModal(event) {
+            // Si event est undefined, c'est qu'on vient du bouton close
+            if (!event || event.currentTarget === event.target) {
+                const overlay = document.getElementById('timelineOverlay');
+                overlay.classList.remove('active');
+                document.body.style.overflow = ''; // Réactiver le scroll
+            }
+        }
+
+        // Fonctions de recherche
+        function openSearch() {
+            document.getElementById('searchOverlay').classList.add('active');
+            document.getElementById('searchInput').focus();
+        }
+
+        function closeSearch() {
+            document.getElementById('searchOverlay').classList.remove('active');
+        }
+
+        // Fermer avec la touche Escape
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                if (document.getElementById('timelineOverlay').classList.contains('active')) {
+                    closeTimelineModal();
+                }
+                closeSearch();
+            }
+        });
+    </script>
+</body>
+
+
+<!-- Mirrored from linergroup.tech/milena/apropos.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Feb 2026 07:09:07 GMT -->
+
+</html>

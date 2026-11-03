@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<!-- Mirrored from linergroup.tech/milena/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Feb 2026 07:09:05 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IUP MILENA - Excellence & Innovation</title>
+    <meta name="description"
+        content="L'Institut Universitaire Polytechnique MILENA forme les leaders de demain grâce à un modèle pédagogique innovant et le système Dual (30% théorie / 70% pratique).">
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="../../cdn.jsdelivr.net/npm/bootstrap%405.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/bootstrap-icons%401.11.1/font/bootstrap-icons.css">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="assets/css/animations.html">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --blue-color: #253E86;
+            --blue-dark: #005a8d;
+            --blue-light: #e6f5fb;
+            --orange-color: #E65125;
+            --orange-light: #fff3f0;
+            --white-color: #ffffff;
+            --gray-light: #f8f9fa;
+            --gray-text: #6c757d;
+            --dark-color: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white-color);
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        /* Classes utilitaires */
+        .text-orange {
+            color: var(--orange-color) !important;
+        }
+
+        .text-blue {
+            color: var(--blue-color) !important;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--white-color);
+            box-shadow: 0 2px 20px rgba(0, 145, 211, 0.08);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0, 145, 211, 0.12);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--blue-color) !important;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar-brand i {
+            color: var(--orange-color);
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 600;
+            padding: 0.5rem 1rem !important;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-color), var(--orange-color));
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--blue-color) !important;
+        }
+
+        .dropdown-menu {
+            background-color: var(--white-color);
+            border: none;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            animation: fadeInDown 0.3s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-item {
+            color: var(--dark-color);
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: var(--white-color);
+            transform: translateX(5px);
+        }
+
+        .btn-admission {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: var(--white-color);
+            border: none;
+            padding: 0.6rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: all 0.3s ease-in-out;
+            box-shadow: none;
+        }
+
+        .btn-admission:hover {
+            transform: translateY(-2px);
+            box-shadow: none;
+        }
+
+        /* Barre de recherche */
+        /* Mobile defaults (Fixed overlay) */
+        .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .search-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .search-overlay input {
+            width: 100%;
+            max-width: 800px;
+            border: none;
+            border-bottom: 2px solid var(--blue-color);
+            font-size: 2rem;
+            padding: 1rem;
+            outline: none;
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+        }
+
+        .search-overlay .close-search {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--gray-light);
+            color: var(--dark-color);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-overlay .close-search:hover {
+            transform: rotate(90deg);
+            background: var(--orange-color);
+            color: white;
+        }
+
+        /* Desktop: Embedded sliding bar */
+        @media (min-width: 992px) {
+            .navbar-collapse {
+                position: relative;
+            }
+
+            /* Layering: Links (1), Search (2), Buttons (3) */
+            .navbar-nav {
+                position: relative;
+                z-index: 1;
+            }
+
+            .navbar-collapse>.d-flex {
+                position: relative;
+                z-index: 3;
+            }
+
+            .search-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                /* Fills the collapse area */
+                width: auto;
+                height: auto;
+                background: var(--white-color);
+                z-index: 2;
+                /* Covers links, sits under buttons */
+
+                /* Layout */
+                justify-content: flex-start;
+                /* Align input to left/center */
+                padding: 0;
+                padding-right: 220px;
+                /* Space for the right-side buttons */
+
+                /* Animation: Slide from Right */
+                transform: translateX(100%);
+                /* Start off to the right */
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+                /* Visual overrides for desktop */
+                border-radius: 0;
+                box-shadow: none;
+                pointer-events: none;
+                /* Let clicks pass through when hidden */
+            }
+
+            .search-overlay.active {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            .search-overlay input {
+                font-size: 1.2rem;
+                border-bottom: none;
+                padding: 0 1rem;
+                max-width: none;
+                height: 100%;
+            }
+
+            .search-overlay .close-search {
+                position: relative;
+                top: auto;
+                right: auto;
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+                margin-left: 1rem;
+                background: linear-gradient(135deg, var(--orange-color), #ff8c5a);
+                color: white;
+            }
+        }
+
+        .btn-search {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: var(--white-color);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 145, 211, 0.3);
+            margin-right: 1rem;
+        }
+
+        .btn-search:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 25px rgba(0, 145, 211, 0.4);
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-color));
+        }
+
+        .btn-search i {
+            font-size: 1.2rem;
+        }
+
+        /*La section Hero*/
+        .hero-section {
+            background: linear-gradient(135deg, var(--blue-light) 0%, var(--white-color) 50%, var(--orange-light) 100%);
+            padding: 125px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 145, 211, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 12s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--blue-color);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--orange-color), #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text {
+            font-size: 1.15rem;
+            color: var(--gray-text);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: var(--white-color);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 145, 211, 0.3);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 145, 211, 0.4);
+        }
+
+        .btn-outline-custom {
+            background-color: transparent;
+            color: var(--blue-color);
+            border: 2px solid var(--blue-color);
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: var(--blue-color);
+            color: var(--white-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 145, 211, 0.3);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 145, 211, 0.25);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image-bg {
+            position: absolute;
+            top: 30px;
+            right: -30px;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--orange-color), var(--blue-color));
+            border-radius: 30px;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        /*La section des Statistiques */
+        .stats-section {
+            background: linear-gradient(135deg, var(--blue-color) 0%, var(--blue-dark) 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, .03) 35px, rgba(255, 255, 255, .03) 70px);
+            animation: slidePattern 20s linear infinite;
+        }
+
+        @keyframes slidePattern {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(70px);
+            }
+        }
+
+        .stats-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.15rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--white-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--white-color);
+            font-weight: 600;
+        }
+
+        /* La section: Points forts */
+        .points-forts-section {
+            padding: 100px 0;
+            background-color: var(--white-color);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--blue-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            border-radius: 24px;
+            background: var(--white-color);
+            border: 2px solid var(--gray-light);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--blue-color), var(--orange-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0, 145, 211, 0.15);
+            border-color: var(--blue-color);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--orange-light), var(--blue-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotate(5deg) scale(1.1);
+            background: linear-gradient(135deg, var(--orange-color), var(--blue-color));
+        }
+
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: var(--blue-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon i {
+            color: var(--white-color);
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--blue-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-text {
+            color: var(--gray-text);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* La section: Formation */
+        .formations-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--gray-light) 0%, var(--white-color) 100%);
+        }
+
+        .formation-card {
+            background: var(--white-color);
+            border-radius: 24px;
+            padding: 2.5rem;
+            height: 100%;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formation-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--blue-color), var(--orange-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .formation-card:hover::after {
+            opacity: 0.05;
+        }
+
+        .formation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 145, 211, 0.2);
+            border-color: var(--blue-color);
+        }
+
+        .formation-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .formation-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--blue-light), var(--orange-light));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .formation-card:hover .formation-icon-wrapper {
+            background: linear-gradient(135deg, var(--blue-color), var(--orange-color));
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .formation-icon-wrapper i {
+            font-size: 2rem;
+            color: var(--blue-color);
+            transition: color 0.3s ease;
+        }
+
+        .formation-card:hover .formation-icon-wrapper i {
+            color: var(--white-color);
+        }
+
+        .formation-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blue-color);
+            margin-bottom: 1rem;
+        }
+
+        .formation-text {
+            color: var(--gray-text);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-formation {
+            background-color: transparent;
+            color: var(--blue-color);
+            border: 2px solid var(--blue-color);
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-formation:hover {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            color: var(--white-color);
+            border-color: transparent;
+            transform: translateX(5px);
+        }
+
+        .formation-card-special {
+            background: linear-gradient(135deg, var(--blue-color), var(--blue-dark));
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .formation-card-special .card-body {
+            text-align: center;
+        }
+
+        .formation-card-special i {
+            font-size: 4rem;
+            color: var(--orange-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .formation-card-special h5 {
+            color: var(--white-color);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-decouvrir {
+            background: linear-gradient(135deg, var(--orange-color), #ff8c5a);
+            color: var(--white-color);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-decouvrir:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .partners-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+            overflow: hidden;
+        }
+
+        .partners-slider {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .partners-track {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            animation: scrollPartners 30s linear infinite;
+        }
+
+        /* Pause au survol */
+        .partners-slider:hover .partners-track {
+            animation-play-state: paused;
+        }
+
+        .partner-item {
+            flex: 0 0 auto;
+        }
+
+        .partner-item img {
+            height: 70px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .partner-item.mod {
+            background-color: #9f9797;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .partner-item.scale {
+            transform: scale(1.8);
+        }
+
+        .partner-item.mod {
+            flex: 0 0 auto;
+        }
+
+        /* Effet hover pro */
+        .partner-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Animation */
+        @keyframes scrollPartners {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+
+        /* Le footer */
+        footer {
+            background: var(--blue-color);
+            color: var(--blue-color);
+            padding: 80px 0 30px;
+        }
+
+        /* Swiper Custom Styles */
+        .formations-slider {
+            padding: 20px 20px 60px;
+            margin: 0 -20px;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--blue-color);
+            background: var(--white-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: var(--blue-color);
+            color: var(--white-color);
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--orange-color);
+        }
+
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--white-color);
+            font-size: 1.3rem;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        footer .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            background: linear-gradient(135deg, var(--blue-color), var(--orange-color));
+            transform: translateY(-5px);
+        }
+
+        footer .social-links i {
+            font-size: 1.3rem;
+            color: var(--white-color);
+        }
+
+        footer ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        footer ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        footer ul li a:hover {
+            color: var(--orange-color);
+            transform: translateX(5px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white-color);
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .newsletter-form button {
+            padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, var(--orange-color), #ff8c5a);
+            border: none;
+            border-radius: 50px;
+            color: var(--white-color);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Pour la responsivité */
+        @media (max-width: 991px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .stat-number {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 120px 0 60px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .btn-primary-custom,
+            .btn-outline-custom {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.95rem;
+            }
+
+            .points-forts-section,
+            .formations-section {
+                padding: 60px 0;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        /*L'animation lorsqu'on scrolle*/
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index-2.html">
+                <img src="assets/img/logo-iUP-MILENA.png" width="80" alt="" srcset="">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index-2.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="apropos.html">À propos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="formationDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Formations
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="formation1.html">TSN : Technologies & Solutions
+                                    Numériques</a></li>
+                            <li><a class="dropdown-item" href="formation2.html">IEDD : Ingénierie de l'Environnement et
+                                    Développement Durable</a></li>
+                            <li><a class="dropdown-item" href="formation3.html">IBC : Ingénierie de Bâtiments et
+                                    Construction</a></li>
+                            <li><a class="dropdown-item" href="formation4.html">AIC : Agrobusiness et Ingénierie
+                                    Coopérative</a></li>
+                            <li><a class="dropdown-item" href="formation5.html">LTES : Logistique, Transport et Économie
+                                    des Services</a></li>
+                            <li><a class="dropdown-item" href="formation6.html">IAA : Industrie Artisanale et
+                                    Artistique</a></li>
+                            <li><a class="dropdown-item" href="formation7.html">HRE : Hôtellerie, Restauration et
+                                    Écotourisme</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="actualites.html">Actualités</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="vie-etudiant.html">Vie étudiante</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admission.html">Admission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">Contacts</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn-search" onclick="openSearch()">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button class="btn-admission" onclick="window.location.href='admission.html'">Candidature</button>
+                </div>
+
+                <!-- Barre de recherche déplacée ici pour le desktop -->
+                <div class="search-overlay" id="searchOverlay">
+                    <input type="text" placeholder="Rechercher..." id="searchInput">
+                    <button class="close-search" onclick="closeSearch()">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- La section Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="hero-content">
+                        <h1 class="hero-title m-0">
+                            Bienvenue à <br>
+                            <span class="highlight">l’IUP MILENA.</span>
+                        </h1>
+                        <p>Former aujourd’hui les leaders, entrepreneurs et innovateurs de demain.</p>
+                        <p class="hero-text">
+                            <strong class="text-blue fw-bold">À MILENA</strong>
+                            nous préparons une nouvelle génération de professionnels grâce à une formation pratique,
+                            orientée métiers et innovation, fondée sur le système dual et l’excellence académique.
+                        </p>
+                        <p class="hero-text">
+                            <strong>Filières mises en avant.</strong><br>
+                        </p>
+                        <ul class="text-muted">
+                            <li>Technologies & Solutions Numériques (TSN)</li>
+                            <li>Agrobusiness & Ingénierie Coopérative (AIC)</li>
+                            <li>HRE : Hôtellerie, Restauration et Écotourisme</li>
+                            <li>Concevoir et suivre des projets environnementaux.</li>
+                        </ul>
+
+                        <em><span class="text-orange fw-bold">MILENA, apprendre autrement pour réussir
+                                durablement.</span></em>
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <button class="btn-primary-custom" onclick="window.location.href='apropos.html'">
+                                Découvrir l'Institut
+                            </button>
+                            <button class="btn-outline-custom" onclick="window.location.href='contacts.html'">
+                                Nous contacter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image-bg"></div>
+                        <img src="assets/img/Acceuil.jpg" alt="Campus Institut" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistiques Section (Le Modèle) -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="stats-title">Le modèle IUP MILENA.</h2>
+                    <p class="stats-subtitle">Une approche révolutionnaire pour l'employabilité en Afrique.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-number">30%</div>
+                        <div class="stat-label">Théorie en salle.</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label">Pratique en entreprise.</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">Filières d'avenir.</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Piliers DRIVEn.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Points Forts Section -->
+    <section class="points-forts-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Pourquoi choisir IUP MILENA.</h2>
+                <p class="section-subtitle">Millénium pour le Leadership et l’Entrepreneuriat en Afrique.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="bi bi-briefcase-fill"></i>
+                        </div>
+                        <h5 class="feature-title">Système Dual.</h5>
+                        <p class="feature-text">Un modèle d'apprentissage équilibré entre 30% de théorie et 70% de
+                            pratique.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h5 class="feature-title">Compétences de vie et Leadership.</h5>
+                        <p class="feature-text">Une formation qui va au-delà de l'académique pour forger le caractère et
+                            les capacités de direction.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="bi bi-lightbulb-fill"></i>
+                        </div>
+                        <h5 class="feature-title">Pédagogie DRIVEn.</h5>
+                        <p class="feature-text">Alliant excellence académique et immersion professionnelle
+                            pour transformer les étudiants en "bâtisseurs".</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="bi bi-award-fill"></i>
+                        </div>
+                        <h5 class="feature-title">Objectif "01 Formation, 01 Emploi ou 01 Entreprise".</h5>
+                        <p class="feature-text">Une promesse de résultat concret visant l'insertion professionnelle
+                            directe ou l'entrepreneuriat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programmes de Formation Section -->
+    <section class="formations-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Nos filières de formation.</h2>
+                <p class="section-subtitle">Licence & master professionnels.</p>
+            </div>
+            <div class="swiper formations-slider">
+                <div class="swiper-wrapper">
+                    <!-- TSN -->
+                    <div class="swiper-slide">
+                        <div class="formation-card">
+                            <div class="formation-icon-wrapper">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <h5 class="formation-title">Technologies & solutions numériques (TSN).</h5>
+                            <p class="formation-text">Développement logiciel, réseaux, et solutions digitales pour
+                                l'Afrique.</p>
+                            <a href="formation1.html" class="btn-formation">Découvrir</a>
+                        </div>
+                    </div>
+                    <!-- IEDD -->
+                    <div class="swiper-slide">
+                        <div class="formation-card">
+                            <div class="formation-icon-wrapper">
+                                <i class="bi bi-recycle"></i>
+                            </div>
+                            <h5 class="formation-title">Environnement & dév. durable (IEDD).</h5>
+                            <p class="formation-text">Ingénierie écologique, gestion des déchets et économie verte.</p>
+                            <a href="formation2.html" class="btn-formation">Découvrir</a>
+                        </div>
+                    </div>
+                    <!-- IBC -->
+                    <div class="swiper-slide">
+                        <div class="formation-card">
+                            <div class="formation-icon-wrapper">
+                                <i class="bi bi-buildings"></i>
+                            </div>
+                            <h5 class="formation-title">Bâtiments & construction (IBC).</h5>
+                            <p class="formation-text">Génie civil moderne, architecture durable et construction.</p>
+                            <a href="formation3.html" class="btn-formation">Découvrir</a>
+                        </div>
+                    </div>
+                    <!-- AIC -->
+                    <div class="swiper-slide">
+                        <div class="formation-card">
+                            <div class="formation-icon-wrapper">
+                                <i class="bi bi-tree"></i>
+                            </div>
+                            <h5 class="formation-title">AIC : agrobusiness et ingénierie coopérative.</h5>
+                            <p class="formation-text">Ingénierie coopérative, transformation agricole et entrepreneuriat
+                                rural.</p>
+                            <a href="formation4.html" class="btn-formation">Découvrir</a>
+                        </div>
+                    </div>
+                    <!-- LTES -->
+                    <div class="swiper-slide">
+                        <div class="formation-card">
+                            <div class="formation-icon-wrapper">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <h5 class="formation-title">Logistique & transport (LTES).</h5>
+                            <p class="formation-text">Supply chain, économie des services et gestion des transports.</p>
+                            <a href="formation5.html" class="btn-formation">Découvrir</a>
+                        </div>
+                    </div>
+                    <!-- IAA -->
+                    <div class="swiper-slide">
+                        <div class="formation-card">
+                            <div class="formation-icon-wrapper">
+                                <i class="bi bi-palette"></i>
+                            </div>
+                            <h5 class="formation-title">Industrie artisanale et artistique (IAA).</h5>
+                            <p class="formation-text">Valorisation des savoir-faire artisanaux et artistiques par des
+                                approches modernes.</p>
+                            <a href="formation6.html" class="btn-formation">Découvrir</a>
+                        </div>
+                    </div>
+                    <!-- HRE -->
+                    <div class="swiper-slide">
+                        <div class="formation-card">
+                            <div class="formation-icon-wrapper">
+                                <i class="bi bi-cup-hot"></i>
+                            </div>
+                            <h5 class="formation-title">Hôtellerie, restauration et écotourisme (HRE).</h5>
+                            <p class="formation-text">Gestion hôtelière, restauration et développement touristique
+                                durable.</p>
+                            <a href="formation7.html" class="btn-formation">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination & Nav -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next d-none d-lg-flex"></div>
+                <div class="swiper-button-prev d-none d-lg-flex"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="partners-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Nos partenaires.</h2>
+                <p class="section-subtitle">Ils nous font confiance et contribuent à notre excellence.</p>
+            </div>
+
+            <div class="partners-slider">
+                <div class="partners-track">
+
+                    <!-- Logos -->
+                    <div class="partner-item">
+                        <img src="#" alt="Funtech">
+                    </div>
+
+                    <div class="partner-item">
+                        <img src="assets/img/partner/linergroup.jpg" alt="Liner Group">
+                    </div>
+
+                    <div class="partner-item">
+                        <img src="assets/img/partner/itisa.jpg" alt="ITISA">
+                    </div>
+
+                    <div class="partner-item">
+                        <img src="assets/img/partner/ana.jpg" alt="YoupiLab">
+                    </div>
+
+                    <div class="partner-item">
+                        <img src="assets/img/partner/aventis.jpg" alt="Google">
+                    </div>
+
+
+                    <div class="partner-item">
+                        <img src="assets/img/partner/pisen.png" alt="Cisco">
+                    </div>
+
+                    <!-- Duplication pour défilement infini -->
+                    <div class="partner-item">
+                        <img src="assets/img/partner/conceptis.jpg" alt="Funtech">
+                    </div>
+
+                    <div class="partner-item">
+                        <img src="assets/img/partner/ireti.png" alt="Liner Group">
+                    </div>
+
+                    <div class="partner-item">
+                        <img src="assets/img/partner/siliscon%20sarl.png" alt="Microsoft">
+                    </div>
+
+                    <div class="partner-item">
+                        <img src="assets/img/partner/irewa.png" alt="Amazon">
+                    </div>
+
+                    <div class="partner-item">
+                        <img src="assets/img/partner/compassion.png" alt="Google">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>IUP MILENA.</h5>
+                    <p>IUP MILENA, Former des leaders, des entrepreneurs et des innovateurs pour l’Afrique
+                    </p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                    </div>
+                    <div class="mt-3 text-white-50">
+                        <p class="mb-1"><i class="bi bi-geo-alt me-2"></i><a href="https://maps.app.goo.gl/u5kUjBPr3KWrajK37" target="_blank" style="color: inherit; text-decoration: none;">Abomey-Calavi, Zopah / Tankpè</a>.</p>
+                        <p class="mb-1"><i class="bi bi-telephone me-2"></i>+229 01 90 62 62 84</p>
+                        <p class="mb-1"><i class="bi bi-envelope me-2"></i>iup.milena.itisa@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>L'institut.</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index-2.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos (ITISA)</a></li>
+                        <li><a href="#">Nos formations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Services.</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="vie-etudiant.html">Vie étudiante</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Restez informé(e) de nos dernières actualités.</h5>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email">
+                        <button type="submit">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="mb-0">&copy; 2026 IUP MILENA. Tous droits réservés.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../cdn.jsdelivr.net/npm/bootstrap%405.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Fonctions de recherche
+        function openSearch() {
+            document.getElementById('searchOverlay').classList.add('active');
+            document.getElementById('searchInput').focus();
+        }
+
+        function closeSearch() {
+            document.getElementById('searchOverlay').classList.remove('active');
+        }
+
+        // Fermer la recherche avec Echap
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeSearch();
+            }
+        });
+
+        // Initialize Swiper for Formations
+        const formationsSwiper = new Swiper('.formations-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+    </script>
+</body>
+
+
+<!-- Mirrored from linergroup.tech/milena/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Feb 2026 07:09:05 GMT -->
+
+</html>
